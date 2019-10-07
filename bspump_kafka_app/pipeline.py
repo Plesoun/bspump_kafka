@@ -5,6 +5,9 @@ import bspump.kafka
 from bspump_kafka_app.transformator import Transformator
 
 
+"""V prikladu s Transformatorem je i radek s 'bspump.common.MappingItemsProcessor(app, self), 
+nenasel jsem proc."""
+
 class KafkaPipeline(bspump.Pipeline):
 
     def __init__(self, app, pipeline_id):
@@ -13,7 +16,7 @@ class KafkaPipeline(bspump.Pipeline):
             bspump.kafka.KafkaSource(app, self, "KafkaConnection", config={'topic': 'test'}),
             bspump.common.BytesToStringParser(app, self),
             bspump.common.PPrintProcessor(app, self),
-            Transformator(app, self),
+#            Transformator(app, self),
 #            bspump.common.MappingItemsProcessor(app, self),
             bspump.common.PPrintSink(app, self),
             bspump.kafka.KafkaSink(app, self, "KafkaConnection", config={'topic': 'messages'}),
