@@ -17,7 +17,6 @@ class KafkaPipeline(bspump.Pipeline):
             bspump.common.BytesToStringParser(app, self),
             bspump.common.PPrintProcessor(app, self),
 #            Transformator(app, self),
-#            bspump.common.MappingItemsProcessor(app, self),
-            bspump.common.PPrintSink(app, self),
+#            bspump.common.PPrintSink(app, self),
             bspump.kafka.KafkaSink(app, self, "KafkaConnection", config={'topic': 'messages'}),
         )

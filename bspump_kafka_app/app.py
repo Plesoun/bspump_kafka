@@ -6,16 +6,17 @@ from bspump_kafka_app.pipeline import KafkaPipeline
 kdyz tam dam misto 'main' initialize, tak to zase nemuze najit 'PumpService', funguje to, pokud to co je ted
 zakomentovane presunu do 'bspump_kafka.py'"""
 
+
 class BlankAppApplication(bspump.BSPumpApplication):
 
-    async def main(self):
+    def __init__(self):
+        super().__init__()
         svc = self.get_service("bspump.PumpService")
 
-#        svc.add_connection(
-#            bspump.kafka.KafkaConnection(self, "KafkaConnection")
-#        )
+        svc.add_connection(
+            bspump.kafka.KafkaConnection(self, "KafkaConnection")
+        )
 
-#        svc.add_pipeline(
-#            KafkaPipeline(self, "KafkaPipeline")
-#        )
-
+        svc.add_pipeline(
+            KafkaPipeline(self, "KafkaPipeline")
+        )
