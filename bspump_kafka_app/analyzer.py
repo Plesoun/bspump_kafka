@@ -40,7 +40,6 @@ class GraphSessionAnalyzer(SessionAnalyzer):
 
 			for j in cast:
 				if cast[j].split(".")[0][0] == "T":
-					#print(cast[j].split(".")[0])
 					graph.update({f"{j}": cast[j].split(".")[0]})
 
 		self.Sessions.flush()

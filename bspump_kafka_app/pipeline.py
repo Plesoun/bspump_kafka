@@ -5,8 +5,6 @@ import bspump.kafka
 from bspump_kafka_app.transformator import Transformator, ProcessorExample
 from bspump_kafka_app.analyzer import GraphSessionAnalyzer
 
-"""V prikladu s Transformatorem je i radek s 'bspump.common.MappingItemsProcessor(app, self), 
-nenasel jsem proc."""
 
 class KafkaPipeline(bspump.Pipeline):
 
