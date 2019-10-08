@@ -3,7 +3,7 @@ import bspump
 import bspump.common
 import bspump.kafka
 from bspump_kafka_app.transformator import Transformator, ProcessorExample
-
+from bspump_kafka_app.analyzer import GraphSessionAnalyzer
 
 """V prikladu s Transformatorem je i radek s 'bspump.common.MappingItemsProcessor(app, self), 
 nenasel jsem proc."""
@@ -18,6 +18,7 @@ class KafkaPipeline(bspump.Pipeline):
 #            bspump.common.PPrintProcessor(app, self),
             Transformator(app, self),
             ProcessorExample(app, self),
+            GraphSessionAnalyzer(app, self, config={'analyze_period':1}),
             bspump.common.PPrintSink(app, self),
 #            bspump.kafka.KafkaSink(app, self, "KafkaConnection", config={'topic': 'messages'}),
         )
