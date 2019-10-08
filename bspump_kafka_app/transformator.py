@@ -1,5 +1,7 @@
 import bspump.common
 import bspump
+import pandas as pd
+
 
 
 class Transformator(bspump.common.MappingTransformator):
@@ -22,4 +24,9 @@ class ProcessorExample(bspump.Processor):
 	def process(self, context, event):
 		event["foo"] = "bar"
 		event["fest"] = "test"
+		df = pd.DataFrame.from_dict({"cast": event["cast"]})
+		df.iloc[-1] = "The Someone else"
+		event["pandas"] = df["cast"]
+		if event["title"] == "JURASSIC PARK":
+			event["cast"].append("The Stunt")
 		return event  # Pass event to the following processor

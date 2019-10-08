@@ -40,7 +40,7 @@ class GraphSessionAnalyzer(SessionAnalyzer):
 
 			for j in cast:
 				if cast[j].split(".")[0][0] == "T":
-					graph.update({f"{j}": cast[j].split(".")[0]})
+					graph.update({f"{cast[j].split('.')[1]} {j}": cast[j].split(".")[0]})
 
 		self.Sessions.flush()
 		L.warning("Graph is {}".format(graph))
