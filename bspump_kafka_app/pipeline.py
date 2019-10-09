@@ -19,5 +19,5 @@ class KafkaPipeline(bspump.Pipeline):
             GraphSessionAnalyzer(app, self, config={'analyze_period':1}),
 #            bspump.common.NullSink(app, self)
             bspump.common.PPrintSink(app, self),
-#            bspump.kafka.KafkaSink(app, self, "KafkaConnection", config={'topic': 'messages'}),
+            bspump.kafka.KafkaSink(app, self, "KafkaConnection", config={'topic': 'messages'}),
         )

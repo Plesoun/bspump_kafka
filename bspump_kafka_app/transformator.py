@@ -3,7 +3,6 @@ import bspump
 import pandas as pd
 
 
-
 class Transformator(bspump.common.MappingTransformator):
 
 	def build(self, app):
